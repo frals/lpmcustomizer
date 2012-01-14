@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/qml">
+        <file alias="GalleryPicker.qml">qml/lpmcustomizer/GalleryPicker.qml</file>
+        <file alias="main.qml">qml/lpmcustomizer/main.qml</file>
+        <file alias="MainPage.qml">qml/lpmcustomizer/MainPage.qml</file>
+    </qresource>
+</RCC>
