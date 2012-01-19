@@ -6,9 +6,10 @@
 #include <QDeclarativeView>
 
 #include "platformintegration.h"
+#include "imagegenerator.h"
+#include "imagesaver.h"
 
 #include "galleryitem.h"
-//#include "gallerymodel.h"
 
 #include <applauncherd/MDeclarativeCache>
 
@@ -33,7 +34,16 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     //qmlRegisterUncreatableType<GalleryModel>("LPM", 1, 0, "GalleryModel", "You can't create this!");
 
     PlatformIntegration *p = new PlatformIntegration(ctx);
+    ImageGenerator *ig = new ImageGenerator();
+    ImageSaver *is = new ImageSaver(ig);
+
+    QObject::connect(is, SIGNAL(imageSaved(QString)), p, SLOT(onImageSaved(QString)));
+
+    view->engine()->addImageProvider(QString("logocreator"), ig);
+
     ctx->setContextProperty("platform", p);
+    ctx->setContextProperty("imageSaver", is);
+
     p->updateGallery();
 
     QObject::connect(view->engine(), SIGNAL(quit()), app, SLOT(quit()));

@@ -3,5 +3,7 @@
         <file alias="GalleryPicker.qml">qml/lpmcustomizer/GalleryPicker.qml</file>
         <file alias="main.qml">qml/lpmcustomizer/main.qml</file>
         <file alias="MainPage.qml">qml/lpmcustomizer/MainPage.qml</file>
+        <file alias="DefaultView.qml">qml/lpmcustomizer/DefaultView.qml</file>
+        <file alias="TextView.qml">qml/lpmcustomizer/TextView.qml</file>
     </qresource>
 </RCC>

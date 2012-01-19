@@ -36,7 +36,9 @@ QMAKE_RESOURCE_FLAGS += -threshold 30 -compress 9
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
     platformintegration.cpp \
-    galleryitem.cpp
+    galleryitem.cpp \
+    imagesaver.cpp \
+    imagegenerator.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
@@ -52,12 +54,16 @@ OTHER_FILES += \
 
 HEADERS += \
     platformintegration.h \
-    galleryitem.h
+    galleryitem.h \
+    imagesaver.h \
+    imagegenerator.h
 
 OTHER_FILES += \
     qml/lpmcustomizer/main.qml \
     qml/lpmcustomizer/MainPage.qml \
     qml/lpmcustomizer/GalleryPicker.qml \
+    qml/lpmcustomizer/TextView.qml \
+    qml/lpmcustomizer/DefaultView.qml \
 
 
 contains(MEEGO_EDITION,harmattan) {

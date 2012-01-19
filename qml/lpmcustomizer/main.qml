@@ -10,5 +10,4 @@ PageStackWindow {
         id: mainPage
     }
 
-
 }

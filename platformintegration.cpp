@@ -148,15 +148,6 @@ void PlatformIntegration::addNoLogo()
 
 }
 
-void PlatformIntegration::removeNoLogo()
-{
-    qDebug() << __PRETTY_FUNCTION__;
-//    if(m_list) {
-//        m_list->remove("/opt/lpmcustomizer/no-logo.png");
-//    }
-    //emit galleryModelChanged();
-}
-
 void PlatformIntegration::operatorLogoChangedSlot()
 {
     qDebug() << __PRETTY_FUNCTION__ << m_operatorlogo->value();
@@ -166,11 +157,16 @@ void PlatformIntegration::operatorLogoChangedSlot()
 void PlatformIntegration::setOperatorLogo(const QString &path)
 {
     qDebug() << __PRETTY_FUNCTION__ << path;
-    //if(path == "") removeNoLogo();
     m_operatorlogo->set(path);
 }
 
 QString PlatformIntegration::operatorLogo() const
 {
     return m_operatorlogo->value().toString();
+}
+
+void PlatformIntegration::onImageSaved(const QString &path)
+{
+    setOperatorLogo("");
+    setOperatorLogo(path);
 }

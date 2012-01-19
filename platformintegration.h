@@ -34,7 +34,6 @@ public:
     Q_INVOKABLE void setOperatorLogo(const QString& path);
 
     Q_INVOKABLE void addNoLogo();
-    Q_INVOKABLE void removeNoLogo();
 
     bool updating() const;
     QString operatorLogo() const;
@@ -52,6 +51,7 @@ signals:
 
 public slots:
     void sparqlFinished();
+    void onImageSaved(const QString& path);
 
 private slots:
     void operatorLogoChangedSlot();
