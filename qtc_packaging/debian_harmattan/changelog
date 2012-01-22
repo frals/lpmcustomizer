@@ -1,5 +1,5 @@
-se-frals-lpmcustomizer (1.2.9) unstable; urgency=low
+se-frals-lpmcustomizer (1.2.90) unstable; urgency=low
 
-  * Define your own text to display!
+  * Define your own text to display, now with decent design
 
- -- Nick Leppanen Larsson <frals@frals.se>  Thu, 19 Jan 2012 22:19:14 +0300
+ -- Nick Leppanen Larsson <frals@frals.se>  Sun, 22 Jan 2012 13:39:53 +0300

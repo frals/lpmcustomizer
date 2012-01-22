@@ -18,9 +18,7 @@ void ImageSaver::saveImage(const QString& url)
     qDebug() << Q_FUNC_INFO;
     qDebug() << "got pixmap:" << url;
 
-    const QSize s;
-    QSize *s1;
-    QPixmap px = m_ig->requestPixmap(url, s1, s);
+    QPixmap px = m_ig->requestPixmap(url, new QSize(), QSize());
     px.save("/home/user/lpmlogo.png");
     emit imageSaved("/home/user/lpmlogo.png");
 }

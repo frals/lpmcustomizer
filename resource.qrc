@@ -4,6 +4,11 @@
         <file alias="main.qml">qml/lpmcustomizer/main.qml</file>
         <file alias="MainPage.qml">qml/lpmcustomizer/MainPage.qml</file>
         <file alias="DefaultView.qml">qml/lpmcustomizer/DefaultView.qml</file>
-        <file alias="TextView.qml">qml/lpmcustomizer/TextView.qml</file>
+        <file alias="CreatorSheet.qml">qml/lpmcustomizer/CreatorSheet.qml</file>
+        <file alias="SymbolButton.qml">qml/lpmcustomizer/SymbolButton.qml</file>
+    </qresource>
+    <qresource prefix="/img">
+        <file alias="heart.png">img/heart.png</file>
+        <file alias="inverted-heart.png">img/inverted-heart.png</file>
     </qresource>
 </RCC>
