@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/qml">
-        <file alias="GalleryPicker.qml">qml/lpmcustomizer/GalleryPicker.qml</file>
         <file alias="main.qml">qml/lpmcustomizer/main.qml</file>
         <file alias="MainPage.qml">qml/lpmcustomizer/MainPage.qml</file>
         <file alias="DefaultView.qml">qml/lpmcustomizer/DefaultView.qml</file>
@@ -8,7 +7,13 @@
         <file alias="SymbolButton.qml">qml/lpmcustomizer/SymbolButton.qml</file>
     </qresource>
     <qresource prefix="/img">
-        <file alias="heart.png">img/heart.png</file>
-        <file alias="inverted-heart.png">img/inverted-heart.png</file>
+        <file alias="heart_black.png">img/heart_black.png</file>
+        <file alias="heart_white.png">img/heart_white.png</file>
+        <file alias="note_black.png">img/note_black.png</file>
+        <file alias="note_white.png">img/note_white.png</file>
+        <file alias="smile_black.png">img/smile_black.png</file>
+        <file alias="smile_white.png">img/smile_white.png</file>
+        <file alias="star_black.png">img/star_black.png</file>
+        <file alias="star_white.png">img/star_white.png</file>
     </qresource>
 </RCC>

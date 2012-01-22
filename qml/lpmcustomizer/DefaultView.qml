@@ -3,7 +3,6 @@ import com.nokia.meego 1.0
 
 Item {
     id: pickImagePage
-    //anchors.fill: parent
 
     Text {
         id: curLab
@@ -28,7 +27,7 @@ Item {
         text: "For best quality, use black and white images with size 120 x 120 in png-format."
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         font.pointSize: 16
-        lineHeight: 22
+        lineHeight: 24
         lineHeightMode: Text.FixedHeight
         font.family: "Nokia Pure Text Light"
         color: "#505050"
@@ -43,6 +42,8 @@ Item {
 
         height: 120
         width: 120
+
+        cache: false
 
         sourceSize.height: width
         sourceSize.width: height
@@ -101,9 +102,9 @@ Item {
                 height: 118
 
                 Rectangle {
-                    color: "#ff8430"
+                    color: "#ff8500"
                     anchors.fill: parent
-                    visible: imgView.currentIndex == index
+                    visible: imgView.currentIndex === index
                 }
 
                 Image {
@@ -118,11 +119,11 @@ Item {
 
                     clip: true
                     source: "file:" + modelData.filepath
-                    //source: url
 
                     fillMode: Image.PreserveAspectCrop
                     asynchronous: true
                     smooth: true
+                    cache: source == "file:///home/user/lpmlogo.png" ? false : true
 
                     //rotation: portrait ? 90 : 0
 

@@ -6,18 +6,19 @@ Sheet {
     anchors.fill: parent
 
     property string savedSymbol;
+    property string alignment: "left";
 
     property int sideMargin: sheet.platformStyle.acceptButtonRightMargin
 
-    onAccepted: imageSaver.saveImage(savedSymbol + "/" + fontSize.value + "/" + textField.text);
+    onAccepted: imageSaver.saveImage(alignment + "/" + savedSymbol + "/" + fontSize.value + "/" + textField.text);
 
-    function changeImage(symbol, size, text) {
+    function changeImage(align, symbol, size, text) {
         var symstr = symbol
         if(symstr === null) {
             symstr = savedSymbol
         }
 
-        imgPreview.source = "image://logocreator/" + symstr + "/" + size + "/" + text;
+        imgPreview.source = "image://logocreator/" + alignment + "/" + symstr + "/" + size + "/" + text;
         savedSymbol = symstr;
     }
 
@@ -46,6 +47,7 @@ Sheet {
                 pressedBackground: "image://theme/color17-meegotouch-sheet-button-accent"+__invertedString+"-background-pressed"
                 disabledBackground: "image://theme/color17-meegotouch-sheet-button-accent"+__invertedString+"-background-disabled"
             }
+            enabled: textField.text != "" || !(savedSymbol == "" || savedSymbol == "0")
             visible: text != ""
             text: "Save"
             onClicked: close()
@@ -63,9 +65,9 @@ Sheet {
         Text {
             id: curLab
             anchors.top: parent.top
-            anchors.topMargin: 24
+            anchors.topMargin: 20
             anchors.left: parent.left
-            anchors.leftMargin: 16
+            anchors.leftMargin: sideMargin
             text: "New logo"
             font.pointSize: 24
             lineHeight: 28
@@ -77,13 +79,13 @@ Sheet {
             anchors.top: curLab.bottom
             anchors.topMargin: 8
             anchors.left: parent.left
-            anchors.leftMargin: 16
+            anchors.leftMargin: sideMargin
             anchors.right: imgPreview.left
             anchors.rightMargin: 40
             text: "Enter the text to display on your logo and use the slider to resize it. You can also add a symbol from the menu."
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
             font.pointSize: 16
-            lineHeight: 22
+            lineHeight: 24
             lineHeightMode: Text.FixedHeight
             font.family: "Nokia Pure Text Light"
             color: "#505050"
@@ -104,7 +106,7 @@ Sheet {
             sourceSize.height: width
             sourceSize.width: height
 
-            source: "image://logocreator/0/0/"
+            source: "image://logocreator/left/0/0/"
 
             Rectangle {
                 anchors.fill: parent
@@ -114,9 +116,39 @@ Sheet {
             }
         }
 
+        ButtonRow {
+            id: alignBar
+            anchors.top: descLab.bottom
+            anchors.topMargin: 16
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            Button {
+                text: "Left"
+                onClicked: {
+                    alignment = "left";
+                    changeImage(alignment, null, fontSize.value, textField.text);
+                }
+            }
+            Button {
+                text: "Center"
+                onClicked: {
+                    alignment = "center";
+                    changeImage(alignment, null, fontSize.value, textField.text);
+                }
+            }
+            Button {
+                text: "Right"
+                onClicked: {
+                    alignment = "right";
+                    changeImage(alignment, null, fontSize.value, textField.text);
+                }
+            }
+        }
+
+
         TextArea {
             id: textField
-            anchors.top: descLab.bottom
+            anchors.top: alignBar.bottom
             anchors.topMargin: 8
             height: 200
             anchors.left: parent.left
@@ -127,7 +159,7 @@ Sheet {
             placeholderText: "Enter your (multi-line) text here"
 
             onTextChanged: {
-                changeImage(null, fontSize.value, text);
+                changeImage(alignment, null, fontSize.value, text);
             }
         }
 
@@ -145,7 +177,7 @@ Sheet {
             valueIndicatorVisible: true
 
             onValueChanged: {
-                changeImage(null, value, textField.text);
+                changeImage(alignment, null, value, textField.text);
             }
         }
 
@@ -154,7 +186,7 @@ Sheet {
             anchors.top: fontSize.bottom
             anchors.topMargin: 24
             anchors.left: parent.left
-            anchors.leftMargin: 16
+            anchors.leftMargin: sideMargin
             text: "Add symbol"
             font.pointSize: 24
         }
@@ -162,9 +194,9 @@ Sheet {
         Row {
             id: butCont
             anchors.top: addSymbol.bottom
-            anchors.topMargin: 4
+            anchors.topMargin: 8
             anchors.horizontalCenter: parent.horizontalCenter
-            spacing: 4
+            spacing: 8
 
             function uncheckOthers(asd) {
                 // totally expected to be able to do a for-in loop over children
@@ -177,19 +209,19 @@ Sheet {
 
             SymbolButton {
                 id: heart
-                iconName: "heart.png"
+                iconName: "heart"
             }
             SymbolButton {
-                id: heart1
-                iconName: "heart.png"
+                id: star
+                iconName: "star"
             }
             SymbolButton {
-                id: heart2
-                iconName: "heart.png"
+                id: smile
+                iconName: "smile"
             }
             SymbolButton {
-                id: heart3
-                iconName: "heart.png"
+                id: note
+                iconName: "note"
             }
         }
     }

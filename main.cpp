@@ -31,7 +31,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     view->setInputMethodHints(Qt::ImhNoPredictiveText);
 
     qmlRegisterType<GalleryItem>("LPM", 1, 0, "GalleryItem");
-    //qmlRegisterUncreatableType<GalleryModel>("LPM", 1, 0, "GalleryModel", "You can't create this!");
 
     PlatformIntegration *p = new PlatformIntegration(ctx);
     ImageGenerator *ig = new ImageGenerator();

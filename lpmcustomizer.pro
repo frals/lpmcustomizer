@@ -61,7 +61,6 @@ HEADERS += \
 OTHER_FILES += \
     qml/lpmcustomizer/main.qml \
     qml/lpmcustomizer/MainPage.qml \
-    qml/lpmcustomizer/GalleryPicker.qml \
     qml/lpmcustomizer/DefaultView.qml \
     qml/lpmcustomizer/SymbolButton.qml \
     qml/lpmcustomizer/CreatorSheet.qml

@@ -19,7 +19,6 @@ class PlatformIntegration : public QObject
 {
     Q_OBJECT
 
-    //Q_PROPERTY(GalleryModel* galleryModel READ galleryModel NOTIFY galleryModelChanged)
     Q_PROPERTY(QList<QObject*>* galleryModel READ galleryModel NOTIFY galleryModelChanged)
     Q_PROPERTY(bool updating READ updating NOTIFY updatingChanged)
 
@@ -34,6 +33,7 @@ public:
     Q_INVOKABLE void setOperatorLogo(const QString& path);
 
     Q_INVOKABLE void addNoLogo();
+    void addCreatedLogo(const QString& path);
 
     bool updating() const;
     QString operatorLogo() const;

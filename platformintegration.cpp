@@ -69,11 +69,6 @@ void PlatformIntegration::updateGallery()
     m_updatingGalleryModel = true;
     emit updatingChanged();
 
-//    if(m_sparqlResult) {
-//        m_sparqlResult->disconnect();
-//        m_sparqlResult->deleteLater();
-//    }
-
     m_sparqlResult = m_sparqlConnection->exec(*m_sparqlQuery);
 
     bool ok = connect(m_sparqlResult, SIGNAL(finished()), this, SLOT(sparqlFinished()), Qt::UniqueConnection);
@@ -97,11 +92,7 @@ void PlatformIntegration::sparqlFinished()
             }
 
             if(m_list) {
-                m_list->insert(0, new GalleryItem(
-                                           path/*,
-                                           m_sparqlResult->binding(1).value().toInt(),
-                                           m_sparqlResult->binding(2).value().toInt()*/
-                                           ));
+                m_list->insert(0, new GalleryItem(path));
             }
         }
     }
@@ -137,12 +128,9 @@ void PlatformIntegration::addNoLogo()
     qDebug() << __PRETTY_FUNCTION__;
     if(m_list /*&& operatorLogo() != ""*/) {
         //if(m_list->at(0)->filepath() != "/opt/lpmcustomizer/no-logo.png") {
-            m_list->insert(0, new GalleryItem(
-                                       "/opt/lpmcustomizer/no-logo.png"/*,
-                                       m_sparqlResult->binding(1).value().toInt(),
-                                       m_sparqlResult->binding(2).value().toInt()*/
-                                       ));
-            //emit galleryModelChanged();
+        m_list->insert(0, new GalleryItem("/opt/lpmcustomizer/no-logo.png"));
+        m_list->insert(1, new GalleryItem("/home/user/lpmlogo.png"));
+        //emit galleryModelChanged();
         //}
     }
 
@@ -169,4 +157,6 @@ void PlatformIntegration::onImageSaved(const QString &path)
 {
     setOperatorLogo("");
     setOperatorLogo(path);
+    m_ctx->setContextProperty("platformGalleryModel", QVariant::fromValue(*m_list));
+    emit galleryModelChanged();
 }
