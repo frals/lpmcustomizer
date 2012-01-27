@@ -119,7 +119,7 @@ Sheet {
         ButtonRow {
             id: alignBar
             anchors.top: descLab.bottom
-            anchors.topMargin: 16
+            anchors.topMargin: 20
             anchors.horizontalCenter: parent.horizontalCenter
 
             Button {
@@ -149,7 +149,7 @@ Sheet {
         TextArea {
             id: textField
             anchors.top: alignBar.bottom
-            anchors.topMargin: 14
+            anchors.topMargin: 20
             height: 200
             anchors.left: parent.left
             anchors.right: parent.right

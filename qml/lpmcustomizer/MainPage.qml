@@ -69,6 +69,7 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             text: "Create new"
             onClicked: creatorSheet.open();
+            width: 212
         }
 
         ToolIcon {
