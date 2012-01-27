@@ -70,7 +70,7 @@ Sheet {
             anchors.leftMargin: sideMargin
             text: "New logo"
             font.pointSize: 24
-            lineHeight: 28
+            lineHeight: 32
             lineHeightMode: Text.FixedHeight
         }
 
@@ -94,7 +94,7 @@ Sheet {
         Image {
             id: imgPreview
             anchors.top: parent.top
-            anchors.topMargin: 24
+            anchors.topMargin: 28
             anchors.right: parent.right
             anchors.rightMargin: sideMargin
 
@@ -149,7 +149,7 @@ Sheet {
         TextArea {
             id: textField
             anchors.top: alignBar.bottom
-            anchors.topMargin: 8
+            anchors.topMargin: 14
             height: 200
             anchors.left: parent.left
             anchors.right: parent.right
